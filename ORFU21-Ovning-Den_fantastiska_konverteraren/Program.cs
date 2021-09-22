@@ -42,9 +42,13 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 //double[] exchangeArrayTo = new double[4] { 0, 10, 5, 2 };
                                 //double[] exchangeArrayFrom = new double[4] { 0, 11, 6, 3 };
 
-                                double[] exchangeArrayFromSEK = new double[4] { 1, 2, 3, 4 };
-                                double[] exchangeArrayFromUSD = new double[4] { 5, 6, 7, 8 };
-                                double[] exchangeArrayFromGBP = new double[4] { 9, 10, 11, 12 };
+                                double[] exchangeArrayFromSEK = new double[4] { 10, 11, 12, 13 };
+                                double[] exchangeArrayFromUSD = new double[4] { 21, 22, 23, 24 };
+                                double[] exchangeArrayFromGBP = new double[4] { 31, 32, 33, 34 };
+
+                                double[] exchangeArrayToSEK = new double[4] { 10, 11, 12, 13 };
+                                double[] exchangeArrayToUSD = new double[4] { 21, 22, 23, 24 };
+                                double[] exchangeArrayToGBP = new double[4] { 31, 32, 33, 34 };
 
                                 double exchangeVarOne = 100.0;
 
@@ -62,20 +66,6 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 
                                 var valutaEtt = Convert.ToInt32(Console.ReadLine());
                                 
-                                if (valutaEtt == 1)
-                                {
-                                    exchangeVarOne = exchangeArrayFromSEK[valutaEtt];
-                                }
-                                if (valutaEtt == 2)
-                                {
-                                    exchangeVarOne = exchangeArrayFromUSD[valutaEtt];
-                                }
-                                if (valutaEtt == 3)
-                                {
-                                    exchangeVarOne = exchangeArrayFromGBP[valutaEtt];
-                                }
-
-
                                 Console.WriteLine(exchangeVarOne);
                                 Console.ReadLine();
                                 //----------------------------------------------------------
@@ -103,6 +93,19 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 Console.Write("Svar: ");
                                 var valutaTwo = Convert.ToInt32(Console.ReadLine());
 
+                                if (valutaTwo == 1)
+                                {
+                                    exchangeVarOne = exchangeArrayToSEK[valutaEtt];
+                                }
+                                if (valutaTwo == 2)
+                                {
+                                    exchangeVarOne = exchangeArrayToUSD[valutaEtt];
+                                }
+                                if (valutaTwo == 3)
+                                {
+                                    exchangeVarOne = exchangeArrayToGBP[valutaEtt];
+                                }
+
                                 while (miniLoop)
                                 {
 
@@ -119,13 +122,13 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                     else
                                     {
-                                        Console.Clear();
+                                        //Console.Clear();
                                         Console.WriteLine("Valutor");
                                         Console.WriteLine("-----------------------------\n");
                                         Console.WriteLine($"Hur mycket {valutaArray[valutaEtt]} vill du vandla? till {valutaArray[valutaTwo]}");
                                         Console.WriteLine();
                                         
-                                        Console.WriteLine(exchangeVarOne);
+                                        ;
 
                                         amountInput = Convert.ToInt32(Console.ReadLine());
 
@@ -136,11 +139,18 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                         //----------------------------------------------------------
 
-                                        Console.Clear();
+                                        //Console.Clear();
                                         Console.WriteLine("Valutor");
                                         Console.WriteLine("-----------------------------\n");
                                         Console.WriteLine($"{amountFormatted} blir {svarFormatted}");
+                                        
+
+                                        Console.WriteLine();
+                                        Console.WriteLine("Debug- exchangeVarOne: " + exchangeVarOne);
+                                        Console.WriteLine("Debug- valutaEtt     : " + valutaEtt);
+
                                         Console.ReadLine();
+
                                         break;
                                     }
 
