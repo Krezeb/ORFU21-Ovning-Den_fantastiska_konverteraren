@@ -15,13 +15,14 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                 int menyVal;
 
                 Console.Clear();
+                Console.WriteLine("-----------------------------");
                 Console.WriteLine("Den fantastiska konverteraren");
                 Console.WriteLine("-----------------------------\n");
                 Console.WriteLine("1: Valutor");
                 Console.WriteLine("2: Längder");
                 Console.WriteLine("3: Måttenheter");
                 Console.WriteLine("\n");
-                Console.WriteLine("Vad vill du göra?");
+                Console.WriteLine("Vad vill du göra?\n");
                 Console.Write("Svar: ");
                 menyVal = Convert.ToInt32(Console.ReadLine());
 
@@ -30,54 +31,55 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                     case (1):
                         {
                             //string inputVal;
-                            int valutaEttInt, valutaTwoInt;
                             bool miniLoop = true;
 
-                            /// exchangeArray ska vara FRÅN - valutaArray ska vara TILL
+                            // exchangeArray ska vara FRÅN - valutaArray ska vara TILL
                             while (miniLoop)
                             {
+                                //null and 0 are used to keep index 0 clear and simplify for loops and assignments later on
                                 string[] valutaArray = new string[4] { null, "(SEK) Svenska Kronor", "(USD) Amerikanska Dollar", "(GPB) Brittiska Pund" };
+                                string[] shortCode = new string[4] { null, "SEK", "USD", "GBP" };
                                 string[] localeCode = new string[4] { null, "sv-SE", "en-US", "en-GB" };
 
-                                //double[] exchangeArrayTo = new double[4] { 0, 10, 5, 2 };
-                                //double[] exchangeArrayFrom = new double[4] { 0, 11, 6, 3 };
+                                double[] exchangeArrayToSEK = new double[4] { 0, 0, 8.66, 11.8 };
+                                double[] exchangeArrayToUSD = new double[4] { 0, 0.12, 0, 1.36 };
+                                double[] exchangeArrayToGBP = new double[4] { 0, 0.085, 0.73, 0 };
 
-                                double[] exchangeArrayFromSEK = new double[4] { 10, 11, 12, 13 };
-                                double[] exchangeArrayFromUSD = new double[4] { 21, 22, 23, 24 };
-                                double[] exchangeArrayFromGBP = new double[4] { 31, 32, 33, 34 };
-
-                                double[] exchangeArrayToSEK = new double[4] { 10, 11, 12, 13 };
-                                double[] exchangeArrayToUSD = new double[4] { 21, 22, 23, 24 };
-                                double[] exchangeArrayToGBP = new double[4] { 31, 32, 33, 34 };
-
-                                double exchangeVarOne = 100.0;
+                                double exchangeVarOne = 0.0;
 
                                 Console.Clear();
+                                Console.WriteLine("-----------------------------");
                                 Console.WriteLine("Valutor");
                                 Console.WriteLine("-----------------------------\n");
                                 Console.WriteLine("Vilken valuta vill du konvertera?\n");
 
-                                for (int i = 1; i < valutaArray.Length; i++)
+                                for (int i = 1; i < valutaArray.Length; i++) //For each index in valutaArray, a line is written describing it.
                                 {
                                     Console.WriteLine(i + ": " + valutaArray[i]);
                                 }
                                 Console.WriteLine();
-                                Console.Write("Svar: ");
-                                
+                                Console.WriteLine("0: Return to Main Menu\n");
+
+                                Console.Write("Svar: \n");
+
                                 var valutaEtt = Convert.ToInt32(Console.ReadLine());
-                                
-                                Console.WriteLine(exchangeVarOne);
-                                Console.ReadLine();
+
+                                if (valutaEtt == 0) // If 0 is chosen, loop is broken and user is returned to Main Menu
+                                {
+                                    break;
+                                }
+
                                 //----------------------------------------------------------
 
                                 Console.Clear();
+                                Console.WriteLine("-----------------------------");
                                 Console.WriteLine("Valutor");
                                 Console.WriteLine("-----------------------------\n");
                                 Console.WriteLine("Vilken valuta vill du konvertera till?\n");
 
                                 for (int i = 1; i < valutaArray.Length; i++)
                                 {
-                                    if (valutaEtt == i)
+                                    if (valutaEtt == i) //If an index was previously chosen, it's greyed out here.
                                     {
                                         Console.ForegroundColor = ConsoleColor.DarkGray;
                                         Console.WriteLine(i + ": " + valutaArray[i]);
@@ -90,8 +92,9 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 }
 
                                 Console.WriteLine();
-                                Console.Write("Svar: ");
-                                var valutaTwo = Convert.ToInt32(Console.ReadLine());
+                                Console.Write("Svar: \n");
+
+                                int valutaTwo = Convert.ToInt32(Console.ReadLine());
 
                                 if (valutaTwo == 1)
                                 {
@@ -106,15 +109,20 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     exchangeVarOne = exchangeArrayToGBP[valutaEtt];
                                 }
 
+
                                 while (miniLoop)
                                 {
 
                                     double svar;
                                     int amountInput;
 
-                                    if (valutaTwo == valutaEtt)
+                                    if (valutaTwo == valutaEtt) //If the same currency is chosen twice, error message
                                     {
-                                        Console.WriteLine("FELFELFELFELFELFELFELFELFEL");
+                                        Console.Clear();
+                                        Console.WriteLine("-----------------------------");
+                                        Console.WriteLine("Valutor");
+                                        Console.WriteLine("-----------------------------\n");
+                                        Console.WriteLine("Man kan inte konvertera till samma valuta.");
                                         Console.WriteLine("Var god försök igen..");
                                         Console.ReadLine();
                                         break;
@@ -122,13 +130,13 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                     else
                                     {
-                                        //Console.Clear();
+                                        Console.Clear();
+                                        Console.WriteLine("-----------------------------");
                                         Console.WriteLine("Valutor");
                                         Console.WriteLine("-----------------------------\n");
-                                        Console.WriteLine($"Hur mycket {valutaArray[valutaEtt]} vill du vandla? till {valutaArray[valutaTwo]}");
+                                        Console.WriteLine($"Current ExchangeRate from {shortCode[valutaEtt]} to {shortCode[valutaTwo]} is: {exchangeVarOne}");
+                                        Console.WriteLine($"Hur mycket {valutaArray[valutaEtt]} vill du vandla till {valutaArray[valutaTwo]}");
                                         Console.WriteLine();
-                                        
-                                        ;
 
                                         amountInput = Convert.ToInt32(Console.ReadLine());
 
@@ -139,17 +147,18 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                         //----------------------------------------------------------
 
-                                        //Console.Clear();
+                                        Console.Clear();
+                                        Console.WriteLine("-----------------------------");
                                         Console.WriteLine("Valutor");
                                         Console.WriteLine("-----------------------------\n");
                                         Console.WriteLine($"{amountFormatted} blir {svarFormatted}");
-                                        
-
                                         Console.WriteLine();
-                                        Console.WriteLine("Debug- exchangeVarOne: " + exchangeVarOne);
-                                        Console.WriteLine("Debug- valutaEtt     : " + valutaEtt);
+                                        Console.WriteLine("Tryck ENTER för att göra en ny beräknning");
+                                        //Console.WriteLine("Debug- exchangeVarOne: " + exchangeVarOne);
+                                        //Console.WriteLine("Debug- valutaEtt     : " + valutaEtt);
 
                                         Console.ReadLine();
+
 
                                         break;
                                     }
