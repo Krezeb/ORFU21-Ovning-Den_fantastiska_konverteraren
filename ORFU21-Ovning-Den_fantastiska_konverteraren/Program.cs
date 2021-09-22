@@ -9,7 +9,6 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
         {
             bool isRunning = true;
 
-
             while (isRunning)
             {
                 int menyVal;
@@ -46,10 +45,10 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                 double exchangeVarOne = 0.0;
 
+                                string headerTitle = "-----------------------------\nValutor\n-----------------------------\n";
+
                                 Console.Clear();
-                                Console.WriteLine("-----------------------------");
-                                Console.WriteLine("Valutor");
-                                Console.WriteLine("-----------------------------\n");
+                                Console.WriteLine(headerTitle);
                                 Console.WriteLine("Vilken valuta vill du konvertera?\n");
 
                                 for (int i = 1; i < valutaArray.Length; i++) //For each index in valutaArray, a line is written describing it.
@@ -57,8 +56,7 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     Console.WriteLine(i + ": " + valutaArray[i]);
                                 }
                                 Console.WriteLine();
-                                Console.WriteLine("0: Return to Main Menu\n");
-
+                                Console.WriteLine("0: Återgå till huvudmeny\n");
                                 Console.Write("Svar: ");
 
                                 var valutaEtt = Convert.ToInt32(Console.ReadLine());
@@ -71,9 +69,7 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 //----------------------------------------------------------
 
                                 Console.Clear();
-                                Console.WriteLine("-----------------------------");
-                                Console.WriteLine("Valutor");
-                                Console.WriteLine("-----------------------------\n");
+                                Console.WriteLine(headerTitle);
                                 Console.WriteLine("Vilken valuta vill du konvertera till?\n");
 
                                 for (int i = 1; i < valutaArray.Length; i++)
@@ -94,8 +90,6 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 Console.Write("Svar: ");
 
                                 int valutaTwo = Convert.ToInt32(Console.ReadLine());
-
-
 
                                 if (valutaTwo == 1)
                                 {
@@ -120,9 +114,7 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     if (valutaTwo == valutaEtt) //If the same currency is chosen twice, error message
                                     {
                                         Console.Clear();
-                                        Console.WriteLine("-----------------------------");
-                                        Console.WriteLine("Valutor");
-                                        Console.WriteLine("-----------------------------\n");
+                                        Console.WriteLine(headerTitle);
                                         Console.WriteLine("Man kan inte konvertera till samma valuta.");
                                         Console.WriteLine("Var god försök igen..");
                                         Console.ReadLine();
@@ -132,9 +124,7 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     else
                                     {
                                         Console.Clear();
-                                        Console.WriteLine("-----------------------------");
-                                        Console.WriteLine("Valutor");
-                                        Console.WriteLine("-----------------------------\n");
+                                        Console.WriteLine(headerTitle);
                                         Console.WriteLine($"Current ExchangeRate from {shortCode[valutaEtt]} to {shortCode[valutaTwo]} is: {exchangeVarOne}");
                                         Console.WriteLine($"Hur mycket {valutaArray[valutaEtt]} vill du vandla till {valutaArray[valutaTwo]}");
                                         Console.WriteLine();
@@ -149,17 +139,9 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                         //----------------------------------------------------------
 
                                         Console.Clear();
-                                        Console.WriteLine("-----------------------------");
-                                        Console.WriteLine("Valutor");
-                                        Console.WriteLine("-----------------------------\n");
+                                        Console.WriteLine(headerTitle);
                                         Console.WriteLine($"{amountFormatted} blir {svarFormatted}");
                                         Console.WriteLine();
-                                        
-                                        //Console.WriteLine("Debug- exchangeVarOne: " + exchangeVarOne);
-                                        //Console.WriteLine("Debug- valutaEtt     : " + valutaEtt);
-
-                                        //Console.ReadLine();
-                                        //break; //breaks out of miniminiLoop and back to miniLoop
                                     }
                                     Console.WriteLine("1: Gör en ny konvertering");
                                     Console.WriteLine("0: Återgå till huvudmeny\n");
@@ -185,9 +167,7 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                         }
                                         else
                                         {
-                                            Console.WriteLine("-----------------------------");
-                                            Console.WriteLine("Valutor");
-                                            Console.WriteLine("-----------------------------\n");
+                                            Console.WriteLine(headerTitle);
                                             Console.WriteLine("Ogiltig val. Försök igen..");
                                         }
                                     }
@@ -197,6 +177,7 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                         }
                     case (2):
                         {
+                            string headerTitle = "-----------------------------\nLängder\n-----------------------------\n";
                             bool miniLoop = true;
 
                             while (miniLoop)
@@ -207,24 +188,23 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 string svarString = "";
                                 string siffraString = "";
                                 double svarRound = 0;
+                                int toInput;
+                                int fromInput;
 
                                 Console.Clear();
-                                Console.WriteLine("-----------------------------");
-                                Console.WriteLine("Längder");
-                                Console.WriteLine("-----------------------------\n");
+                                Console.WriteLine(headerTitle);
                                 Console.WriteLine("Välj vilken enhet du ska konvertera FRÅN\n");
                                 Console.WriteLine("1: Millimeter");
                                 Console.WriteLine("2: Centimeter");
                                 Console.WriteLine("3: Meter");
                                 Console.WriteLine("4: Kilometer");
                                 Console.WriteLine();
+                                Console.WriteLine("0: Återgå till huvudmeny\n");
                                 Console.Write("Svar: ");
-                                int fromInput = Convert.ToInt32(Console.ReadLine());
+                                fromInput = Convert.ToInt32(Console.ReadLine());
 
                                 Console.Clear();
-                                Console.WriteLine("-----------------------------");
-                                Console.WriteLine("Längder");
-                                Console.WriteLine("-----------------------------\n");
+                                Console.WriteLine(headerTitle);
 
                                 if (fromInput == 1) //Conversions from mm
                                 {
@@ -237,13 +217,12 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     Console.WriteLine("3: Meter");
                                     Console.WriteLine("4: Kilometer");
                                     Console.WriteLine();
+                                    Console.WriteLine("0: Återgå till huvudmeny\n");
                                     Console.Write("Svar: ");
-                                    int toInput = Convert.ToInt32(Console.ReadLine());
+                                    toInput = Convert.ToInt32(Console.ReadLine());
 
                                     Console.Clear();
-                                    Console.WriteLine("-----------------------------");
-                                    Console.WriteLine("Längder");
-                                    Console.WriteLine("-----------------------------\n");
+                                    Console.WriteLine(headerTitle);
 
                                     if (toInput == 1)
                                     {
@@ -284,6 +263,11 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                         svar = siffra / 1000000; //mm to Km t.ex. 1000 mm = 0.1 Km
                                     }
+                                    if (toInput == 0)
+                                    {
+                                        miniLoop = false;
+                                        break;
+                                    }
                                 }
                                 if (fromInput == 2) //Conversions from cm
                                 {
@@ -296,13 +280,12 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     Console.WriteLine("3: Meter");
                                     Console.WriteLine("4: Kilometer");
                                     Console.WriteLine();
+                                    Console.WriteLine("0: Återgå till huvudmeny\n");
                                     Console.Write("Svar: ");
-                                    int toInput = Convert.ToInt32(Console.ReadLine());
+                                    toInput = Convert.ToInt32(Console.ReadLine());
 
                                     Console.Clear();
-                                    Console.WriteLine("-----------------------------");
-                                    Console.WriteLine("Längder");
-                                    Console.WriteLine("-----------------------------\n");
+                                    Console.WriteLine(headerTitle);
 
                                     if (toInput == 1)
                                     {
@@ -343,6 +326,11 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                         svar = siffra / 1000000; //cm to Km t.ex. 1000 cm = 0.01 Km
                                     }
+                                    if (toInput == 0)
+                                    {
+                                        miniLoop = false;
+                                        break;
+                                    }
                                 }
                                 if (fromInput == 3) //Conversions from m
                                 {
@@ -355,13 +343,12 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     Console.ResetColor();
                                     Console.WriteLine("4: Kilometer");
                                     Console.WriteLine();
+                                    Console.WriteLine("0: Återgå till huvudmeny\n");
                                     Console.Write("Svar: ");
-                                    int toInput = Convert.ToInt32(Console.ReadLine());
+                                    toInput = Convert.ToInt32(Console.ReadLine());
 
                                     Console.Clear();
-                                    Console.WriteLine("-----------------------------");
-                                    Console.WriteLine("Längder");
-                                    Console.WriteLine("-----------------------------\n");
+                                    Console.WriteLine(headerTitle);
 
                                     if (toInput == 1)
                                     {
@@ -403,6 +390,11 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
 
                                         svar = siffra / 1000; //m to Km t.ex. 1000 m = 1 Km
                                     }
+                                    if (toInput == 0)
+                                    {
+                                        miniLoop = false;
+                                        break;
+                                    }
                                 }
                                 if (fromInput == 4) //Conversions from km
                                 {
@@ -415,8 +407,9 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     Console.WriteLine("4: Kilometer");
                                     Console.ResetColor();
                                     Console.WriteLine();
+                                    Console.WriteLine("0: Återgå till huvudmeny\n");
                                     Console.Write("Svar: ");
-                                    int toInput = Convert.ToInt32(Console.ReadLine());
+                                    toInput = Convert.ToInt32(Console.ReadLine());
 
                                     Console.Clear();
                                     Console.WriteLine("-----------------------------");
@@ -460,16 +453,23 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                         Console.ReadLine();
                                         break;
                                     }
+                                    if (toInput == 0)
+                                    {
+                                        miniLoop = false;
+                                        break;
+                                    }
 
-
+                                }
+                                if (fromInput == 0)
+                                {
+                                    miniLoop = false;
+                                    break;
                                 }
                                 svarRound = Math.Round(svar, 2);
                                 svarString = svar.ToString("N2", CultureInfo.CreateSpecificCulture("sv-SE"));
                                 siffraString = siffra.ToString("N2", CultureInfo.CreateSpecificCulture("sv-SE"));
                                 Console.Clear();
-                                Console.WriteLine("-----------------------------");
-                                Console.WriteLine("Längder");
-                                Console.WriteLine("-----------------------------\n");
+                                Console.WriteLine(headerTitle);
                                 Console.WriteLine($"{siffraString} {fromUnit} = {svarString} {toUnit}");
 
                                 Console.WriteLine();
@@ -477,8 +477,10 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                 Console.WriteLine("0: Återgå till huvudmeny\n");
                                 Console.Write("Svar: ");
                                 int returnQ = Convert.ToInt32(Console.ReadLine());
-                                
+
                                 bool returnMenu = true;
+
+
 
                                 if (returnMenu)
                                 {
@@ -494,13 +496,12 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     }
                                     else
                                     {
-                                        Console.WriteLine("-----------------------------");
-                                        Console.WriteLine("Längder");
-                                        Console.WriteLine("-----------------------------\n");
+                                        Console.WriteLine(headerTitle);
                                         Console.WriteLine("Ogiltig val. Försök igen..");
                                     }
                                 }
                             }
+
                             break; //Breaks "Case 2" in "Switch(menyVal)"
                         }
                 }
