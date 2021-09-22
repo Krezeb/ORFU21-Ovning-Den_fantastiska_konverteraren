@@ -33,7 +33,6 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                             //string inputVal;
                             bool miniLoop = true;
 
-                            // exchangeArray ska vara FRÅN - valutaArray ska vara TILL
                             while (miniLoop)
                             {
                                 //null and 0 are used to keep index 0 clear and simplify for loops and assignments later on
@@ -109,8 +108,8 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     exchangeVarOne = exchangeArrayToGBP[valutaEtt];
                                 }
 
-
-                                while (miniLoop)
+                                bool miniMiniLoop = true;
+                                while (miniMiniLoop)
                                 {
 
                                     double svar;
@@ -154,42 +153,16 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                         Console.WriteLine($"{amountFormatted} blir {svarFormatted}");
                                         Console.WriteLine();
                                         Console.WriteLine("Tryck ENTER för att göra en ny beräknning");
+
                                         //Console.WriteLine("Debug- exchangeVarOne: " + exchangeVarOne);
                                         //Console.WriteLine("Debug- valutaEtt     : " + valutaEtt);
 
                                         Console.ReadLine();
-
-
-                                        break;
+                                        break; //breaks out of miniminiLoop and back to miniLoop
                                     }
-
                                 }
-
-
-
-
-
-                                //Console.Write("Svar: ");
-                                //valutaEtt = Console.ReadLine();
-
-
-                                //Console.Clear();
-                                //Console.WriteLine("Valutor");
-                                //Console.WriteLine("-----------------------------\n");
-                                //Console.WriteLine("Vilken valuta vill du konvertera till?");
-                                //Console.WriteLine("1: (SEK) Svenska Kronor");
-                                //Console.WriteLine("2: (USD) Amerikanska Dollar");
-                                //Console.WriteLine("3: (GPB) Brittiska Pund");
-                                //Console.WriteLine();
-                                //Console.Write("Svar: ");
-                                //valutaEtt = Console.ReadLine();
-
-
-
-
-
                             }
-                            break;
+                            break; //Breaks out of miniLoop and back into isRunning
                         }
                 }
             }
