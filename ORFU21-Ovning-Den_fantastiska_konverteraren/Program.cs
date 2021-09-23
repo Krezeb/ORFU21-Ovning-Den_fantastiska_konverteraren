@@ -125,9 +125,9 @@ namespace ORFU21_Ovning_Den_fantastiska_konverteraren
                                     {
                                         Console.Clear();
                                         Console.WriteLine(headerTitle);
-                                        Console.WriteLine($"Current ExchangeRate from {shortCode[valutaEtt]} to {shortCode[valutaTwo]} is: {exchangeVarOne}");
-                                        Console.WriteLine($"Hur mycket {valutaArray[valutaEtt]} vill du vandla till {valutaArray[valutaTwo]}");
-                                        Console.WriteLine();
+                                        Console.WriteLine($"Current ExchangeRate from {shortCode[valutaEtt]} to {shortCode[valutaTwo]} is: {exchangeVarOne}\n");
+                                        Console.WriteLine($"Hur mycket {valutaArray[valutaEtt]} vill du vandla till {valutaArray[valutaTwo]}\n");
+                                        Console.Write("Svar: ");
 
                                         amountInput = Convert.ToInt32(Console.ReadLine());
 
